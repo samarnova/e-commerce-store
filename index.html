@@ -9,7 +9,7 @@
 <body>
     <header>
         <h2>NOVAURAH</h2>
-        <button>cart (<span id="cart-count">0</span>)</button>
+        <button id="cart-btn">cart (<span id="cart-count">0</span>)</button>
     </header>
 
     <main>
@@ -20,6 +20,12 @@
 
         <section id="product-grid"></section>
     </main>
+
+    <aside id="cart-panel" class="hidden">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="cart-total">0</span></p>
+    </aside>
 
     <script src="script.js"></script>
 </body>

@@ -32,6 +32,7 @@ function addToCart(id) {
     }); 
     cart.push(found);
     document.getElementById("cart-count").textContent = cart.length;
+    renderCart();
 }
 
 grid.addEventListener("click", function (e) {
@@ -39,4 +40,19 @@ grid.addEventListener("click", function (e) {
     (e.target.tagName === "BUTTON") {
         addToCart(Number(e.target.dataset.id));
     }
+});
+
+function renderCart() {
+    const list = document.getElementById("cart-items");
+    let total = 0;
+    list.innerHTML = "";
+    cart.forEach(function (item) {
+        list.innerHTML += `<li>${item.name} - $${item.price}</li>`;
+        total += item.price;
+    });
+    document.getElementById("cart-total").textContent = total;
+}
+
+document.getElementById("cart-btn").addEventListener("click", function () {
+    document.getElementById("cart-panel").classList.toggle("hidden");
 });
