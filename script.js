@@ -13,7 +13,7 @@ function showProducts() {
     products.forEach(function (item) {
     grid.innerHTML += `
         <div class="card">
-        <img src="${item.img}" alt:"${item.name}">
+        <img src="${item.img}" alt="${item.name}">
         <h3>${item.name}</h3>
         <p>$${item.price}</p>
         <button data-id="${item.id}">Add to cart</button>
@@ -36,7 +36,7 @@ function addToCart(id) {
 
 grid.addEventListener("click", function (e) {
     if 
-    (e.target.tagname === "BUTTON") {
+    (e.target.tagName === "BUTTON") {
         addToCart(Number(e.target.dataset.id));
     }
 });
