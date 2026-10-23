@@ -5,4 +5,38 @@ const products = [
     { id: 4, name: "NYC Baseball stylish jacket", price: 38, img: "images/nycjacket.jpg" },
     { id: 5, name: "Vintage Wide-leg blue jeans", price: 25, img: "images/widelegblue.jpg" },
     { id: 6, name: "Srtriped cat ears hanging star beanie", price: 20, img: "images/catearsbeanie.jpg" }
-]
+];
+
+const grid = document.getElementById("product-grid");
+
+function showProducts() {
+    products.forEach(function (item) {
+    grid.innerHTML += `
+        <div class="card">
+        <img src="${item.img}" alt:"${item.name}">
+        <h3>${item.name}</h3>
+        <p>$${item.price}</p>
+        <button data-id="${item.id}">Add to cart</button>
+        </div>
+        `;
+    });
+}
+
+showProducts();
+
+let cart = [];
+
+function addToCart(id) {
+    const found = products.find(function (p) {
+        return p.id === id;
+    }); 
+    cart.push(found);
+    document.getElementById("cart-count").textContent = cart.length;
+}
+
+grid.addEventListener("click", function (e) {
+    if 
+    (e.target.tagname === "BUTTON") {
+        addToCart(Number(e.target.dataset.id));
+    }
+});

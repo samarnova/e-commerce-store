@@ -1,0 +1,29 @@
+body {
+    margin: 1;
+    font-family: Arial,sans-serif;
+    background: #ddd0be;
+    text-align: center;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #5a3825;
+    color: white;
+}
+
+#product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.card img {
+    width: 60%;
+    height: 259px;
+    border-radius: 8px;
+}
