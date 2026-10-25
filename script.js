@@ -56,3 +56,14 @@ function renderCart() {
 document.getElementById("cart-btn").addEventListener("click", function () {
     document.getElementById("cart-panel").classList.toggle("hidden");
 });
+
+document.getElementById("checkout-btn").addEventListener("click", function () {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+    alert("thanks for your order!");
+    cart = [];
+    document.getElementById("cart-count").textContent = 0;
+    renderCart();
+});

@@ -1,5 +1,5 @@
 body {
-    margin: 1;
+    margin: 0;
     font-family: Arial,sans-serif;
     background: #ddd0be;
     text-align: center;
@@ -26,10 +26,6 @@ header {
     width: 60%;
     height: 259px;
     border-radius: 8px;
-}
-
-.hidden {
-    display: none;
 }
 
 #cart-panel {
@@ -85,4 +81,25 @@ header {
 
 .hidden {
     display: none;
+}
+
+@media (max-width: 800px) {
+    #product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    #product-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    #cart-panel {
+        width: auto;
+        left: 10px;
+        right: 10px;
+    }
+    header {
+        padding: 1rem;
+    }
 }
