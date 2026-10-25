@@ -67,3 +67,16 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     document.getElementById("cart-count").textContent = 0;
     renderCart();
 });
+
+document.getElementById("outside-btn").addEventListener("click", function () {
+    const outsideOnly = products.filter(function (p) {
+        return p.place === "outside";
+    });
+    showProducts(outsideOnly);
+    document.body.classList.add("outside-mode");
+});
+
+document.getElementById("all-btn").addEventListener("click", function () {
+    showProducts(products);
+    document.body.classList.remove("outside-mode");
+});
