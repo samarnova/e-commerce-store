@@ -1,16 +1,17 @@
 const products = [
-    { id: 1, name: "ARIANA GRANDe HOODIE", price: 30, img: "images/arianahoodie.jpg" },
-    { id: 2, name: "yes,and? totebag", price: 25, img: "images/yesandtote.png" },
-    { id: 3, name: "printed t-shirt= always late but worth the wait~", price: 22, img: "images/tshirtprintlate.jpg" },
-    { id: 4, name: "NYC Baseball stylish jacket", price: 38, img: "images/nycjacket.jpg" },
-    { id: 5, name: "Vintage Wide-leg blue jeans", price: 25, img: "images/widelegblue.jpg" },
-    { id: 6, name: "Srtriped cat ears hanging star beanie", price: 20, img: "images/catearsbeanie.jpg" }
+    { id: 1, name: "ARIANA GRANDe HOODIE", price: 30, img: "images/arianahoodie.jpg", categories: ["women"] },
+    { id: 2, name: "yes,and? totebag", price: 25, img: "images/yesandtote.png", categories: ["accessories"] },
+    { id: 3, name: "printed t-shirt= always late but worth the wait~", price: 22, img: "images/tshirtprintlate.jpg", categories: ["men", "women" ] },
+    { id: 4, name: "NYC Baseball stylish jacket", price: 38, img: "images/nycjacket.jpg", categories: ["men", "women"] },
+    { id: 5, name: "Vintage Wide-leg blue jeans", price: 25, img: "images/widelegblue.jpg", categories: ["women"] },
+    { id: 6, name: "Srtriped cat ears hanging star beanie", price: 20, img: "images/catearsbeanie.jpg", categories: ["accessories"] }
 ];
 
 const grid = document.getElementById("product-grid");
 
-function showProducts() {
-    products.forEach(function (item) {
+function showProducts(list) {
+    grid.innerHTML = "";
+    list.forEach(function (item) {
     grid.innerHTML += `
         <div class="card">
         <img src="${item.img}" alt="${item.name}">
@@ -22,7 +23,7 @@ function showProducts() {
     });
 }
 
-showProducts();
+showProducts(products);
 
 let cart = [];
 
@@ -68,15 +69,21 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     renderCart();
 });
 
-document.getElementById("outside-btn").addEventListener("click", function () {
-    const outsideOnly = products.filter(function (p) {
-        return p.place === "outside";
-    });
-    showProducts(outsideOnly);
-    document.body.classList.add("outside-mode");
-});
+const filters = document.getElementById("filters");
 
-document.getElementById("all-btn").addEventListener("click", function () {
-    showProducts(products);
-    document.body.classList.remove("outside-mode");
+filters.addEventListener("click", function (e) {
+    if (e.target.tagName != "BUTTON") return;
+
+    const choice = e.target.dataset.filter;
+    let list;
+
+    if (choice === "all") {
+        list = products;
+    } else if (choice === "outside") {
+        list = products.filter(function (p) { return p.place === "outside"; });
+    } else {
+        list = products.filter(function (p) { return p.categories.includes(choice); });
+    }
+
+    showProducts(list);
 });
