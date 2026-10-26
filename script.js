@@ -25,13 +25,16 @@ function showProducts(list) {
 
 showProducts(products);
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("Cart")) || [];
 
 function addToCart(id) {
     const found = products.find(function (p) {
         return p.id === id;
     }); 
     cart.push(found);
+    document.getElementById("cart-count").textContent = cart.length;
+    cart.push(found);
+    saveCart();
     document.getElementById("cart-count").textContent = cart.length;
     renderCart();
 }
@@ -65,6 +68,7 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     }
     alert("thanks for your order!");
     cart = [];
+    saveCart();
     document.getElementById("cart-count").textContent = 0;
     renderCart();
 });
