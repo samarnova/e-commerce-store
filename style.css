@@ -106,7 +106,7 @@ body.outside-mode #filters button {
     border: 2px solid white;
 }
 
-body.outside-mode #filers button:hover {
+body.outside-mode #filters button:hover {
     background: #a84f4f;
 }
 
@@ -171,4 +171,14 @@ body.outside-mode::after {
     header {
         padding: 1rem;
     }
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.4 rem;
+    }
+    .card img {
+        width: 80%;
+        object-fit: contain;
+    } 
 }

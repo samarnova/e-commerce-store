@@ -1,10 +1,10 @@
 const products = [
-    { id: 1, name: "ARIANA GRANDe HOODIE", price: 30, img: "images/arianahoodie.jpg", categories: ["women"] },
-    { id: 2, name: "yes,and? totebag", price: 25, img: "images/yesandtote.png", categories: ["accessories"] },
-    { id: 3, name: "printed t-shirt= always late but worth the wait~", price: 22, img: "images/tshirtprintlate.jpg", categories: ["men", "women" ] },
-    { id: 4, name: "NYC Baseball stylish jacket", price: 38, img: "images/nycjacket.jpg", categories: ["men", "women"] },
-    { id: 5, name: "Vintage Wide-leg blue jeans", price: 25, img: "images/widelegblue.jpg", categories: ["women"] },
-    { id: 6, name: "Srtriped cat ears hanging star beanie", price: 20, img: "images/catearsbeanie.jpg", categories: ["accessories"] }
+    { id: 1, name: "ARIANA GRANDe HOODIE", price: 30, img: "images/arianahoodie.jpg", place: "outside", categories: ["women", "outside"] },
+    { id: 2, name: "yes,and? totebag", price: 25, img: "images/yesandtote.png", place: "outside", categories: ["accessories"] },
+    { id: 3, name: "printed t-shirt= always late but worth the wait~", price: 22, img: "images/tshirtprintlate.jpg", place: "outside", categories: ["men", "women" ] },
+    { id: 4, name: "NYC Baseball stylish jacket", price: 38, img: "images/nycjacket.jpg", place: "outside", categories: ["men", "women"] },
+    { id: 5, name: "Vintage Wide-leg blue jeans", price: 25, img: "images/widelegblue.jpg", place: "outside", categories: ["women"] },
+    { id: 6, name: "Srtriped cat ears hanging star beanie", price: 20, img: "images/catearsbeanie.jpg", place: "outside", categories: ["accessories"] }
 ];
 
 const grid = document.getElementById("product-grid");
