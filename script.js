@@ -25,7 +25,7 @@ function showProducts(list) {
 
 showProducts(products);
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addToCart(id) {
     const found = products.find(function (p) {
@@ -86,4 +86,12 @@ filters.addEventListener("click", function (e) {
     }
 
     showProducts(list);
+    document.body.classList.toggle("outside-mode", choice === "outside");
 });
+
+function saveCart() {
+    localStorage.setItem("Cart", JSON.stringify(cart));
+}
+
+document.getElementById("cart-count").textContent = cart.length;
+renderCart();
